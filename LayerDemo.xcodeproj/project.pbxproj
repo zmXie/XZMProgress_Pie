@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE2F80BC1E84EC4700C46975 /* XZMPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE2F80BB1E84EC4700C46975 /* XZMPieView.m */; };
 		AEB640411E825AA900554B10 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB640401E825AA900554B10 /* main.m */; };
 		AEB640441E825AA900554B10 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB640431E825AA900554B10 /* AppDelegate.m */; };
 		AEB640471E825AA900554B10 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB640461E825AA900554B10 /* ViewController.m */; };
@@ -15,6 +16,7 @@
 		AEB6404F1E825AA900554B10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEB6404D1E825AA900554B10 /* LaunchScreen.storyboard */; };
 		AEB6405A1E825AA900554B10 /* LayerDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB640591E825AA900554B10 /* LayerDemoTests.m */; };
 		AEB640651E825AA900554B10 /* LayerDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB640641E825AA900554B10 /* LayerDemoUITests.m */; };
+		AEB640771E825BE600554B10 /* XZMGradientProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEB640761E825BE600554B10 /* XZMGradientProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE2F80BA1E84EC4700C46975 /* XZMPieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMPieView.h; sourceTree = "<group>"; };
+		AE2F80BB1E84EC4700C46975 /* XZMPieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMPieView.m; sourceTree = "<group>"; };
 		AEB6403C1E825AA900554B10 /* LayerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LayerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB640401E825AA900554B10 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AEB640421E825AA900554B10 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +55,8 @@
 		AEB640601E825AA900554B10 /* LayerDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LayerDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEB640641E825AA900554B10 /* LayerDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LayerDemoUITests.m; sourceTree = "<group>"; };
 		AEB640661E825AA900554B10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEB640751E825BE600554B10 /* XZMGradientProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMGradientProgressView.h; sourceTree = "<group>"; };
+		AEB640761E825BE600554B10 /* XZMGradientProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZMGradientProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,10 @@
 				AEB640431E825AA900554B10 /* AppDelegate.m */,
 				AEB640451E825AA900554B10 /* ViewController.h */,
 				AEB640461E825AA900554B10 /* ViewController.m */,
+				AEB640751E825BE600554B10 /* XZMGradientProgressView.h */,
+				AEB640761E825BE600554B10 /* XZMGradientProgressView.m */,
+				AE2F80BA1E84EC4700C46975 /* XZMPieView.h */,
+				AE2F80BB1E84EC4700C46975 /* XZMPieView.m */,
 				AEB640481E825AA900554B10 /* Main.storyboard */,
 				AEB6404B1E825AA900554B10 /* Assets.xcassets */,
 				AEB6404D1E825AA900554B10 /* LaunchScreen.storyboard */,
@@ -276,6 +286,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE2F80BC1E84EC4700C46975 /* XZMPieView.m in Sources */,
+				AEB640771E825BE600554B10 /* XZMGradientProgressView.m in Sources */,
 				AEB640471E825AA900554B10 /* ViewController.m in Sources */,
 				AEB640441E825AA900554B10 /* AppDelegate.m in Sources */,
 				AEB640411E825AA900554B10 /* main.m in Sources */,
@@ -429,6 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8XFNGMWHG2;
 				INFOPLIST_FILE = LayerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cht..LayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,6 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 8XFNGMWHG2;
 				INFOPLIST_FILE = LayerDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cht..LayerDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,6 +530,7 @@
 				AEB6406B1E825AA900554B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEB6406C1E825AA900554B10 /* Build configuration list for PBXNativeTarget "LayerDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +539,7 @@
 				AEB6406E1E825AA900554B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEB6406F1E825AA900554B10 /* Build configuration list for PBXNativeTarget "LayerDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +548,7 @@
 				AEB640711E825AA900554B10 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
