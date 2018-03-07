@@ -47,7 +47,7 @@
         //线的半径为扇形半径的一半，线宽是扇形半径->半径+线宽的一半=真实半径，这样就能画出圆形了
         _radius = (frame.size.width - KMargin*2)/4.f;
         _center = CGPointMake(_radius*2 + KMargin, _radius*2 + KMargin);
-
+        _sectorSpace = 0;
         //通过mask来控制显示区域
         _maskLayer = [CAShapeLayer layer];
         UIBezierPath *maskPath = [UIBezierPath bezierPathWithArcCenter:_center radius:self.bounds.size.width/4.f startAngle:-M_PI_2 endAngle:M_PI_2*3 clockwise:YES];
@@ -78,23 +78,23 @@
      CGFloat end = 0.f;
      for (NSNumber *number in array) {
      
-         end =  start + number.floatValue;
-         CAShapeLayer *pieLayer = [CAShapeLayer layer];
-         pieLayer.strokeStart = start;
-         pieLayer.strokeEnd = end;
-         pieLayer.lineWidth = _radius*2 - Hollow_Circle_Radius;
-         pieLayer.strokeColor = kPieRandColor.CGColor;
-         pieLayer.fillColor = [UIColor clearColor].CGColor;
-         pieLayer.path = piePath.CGPath;
-         
-         [self.layer addSublayer:pieLayer];
-         start = end;
+     end =  start + number.floatValue;
+     CAShapeLayer *pieLayer = [CAShapeLayer layer];
+     pieLayer.strokeStart = start;
+     pieLayer.strokeEnd = end;
+     pieLayer.lineWidth = _radius*2 - Hollow_Circle_Radius;
+     pieLayer.strokeColor = kPieRandColor.CGColor;
+     pieLayer.fillColor = [UIColor clearColor].CGColor;
+     pieLayer.path = piePath.CGPath;
+     
+     [self.layer addSublayer:pieLayer];
+     start = end;
      }
      */
     
     //方法二:每个layer对应一个path，通过数据比例来计算起始角点跟结束角点；相对第一种方法，创建的path较多；但是可以通过path来找到对应的layer，方便做后期操作
-     CGFloat start = -M_PI_2;
-     CGFloat end = start;
+    CGFloat start = -M_PI_2;
+    CGFloat end = start;
     
     while (newDatas.count > self.layer.sublayers.count) {
         
@@ -102,13 +102,13 @@
         pieLayer.strokeColor = NULL;
         [self.layer addSublayer:pieLayer];
     }
-    
+    _sectorSpace = newDatas.count < 3 ? 0 : _sectorSpace;
     for (int i = 0; i < self.layer.sublayers.count; i ++) {
         
         XZMLayer *pieLayer = (XZMLayer *)self.layer.sublayers[i];
         if (i < newDatas.count) {
             pieLayer.hidden = NO;
-            end =  start + M_PI*2*[newDatas[i] floatValue];
+            end =  start + (M_PI*2 - _sectorSpace*newDatas.count) *[newDatas[i] floatValue];
             
             UIBezierPath *piePath = [UIBezierPath bezierPath];
             [piePath moveToPoint:_center];
@@ -119,7 +119,7 @@
             pieLayer.endAngle = end;
             pieLayer.path = piePath.CGPath;
             
-            start = end;
+            start = end + _sectorSpace;
         }else{
             pieLayer.hidden = YES;
         }
@@ -180,7 +180,7 @@
         
         if (CGPathContainsPoint(layer.path, &CGAffineTransformIdentity, point, 0) && !layer.isSelected) {
             layer.isSelected = YES;
-
+            
             //原始中心点为（0，0），扇形所在圆心、原始中心点、偏移点三者是在一条直线，通过三角函数即可得到偏移点的对应x，y。
             CGPoint currPos = layer.position;
             double middleAngle = (layer.startAngle + layer.endAngle)/2.0;
@@ -188,7 +188,7 @@
             layer.position = newPos;
             
         }else{
-
+            
             layer.position = CGPointMake(0, 0);
             layer.isSelected = NO;
         }
@@ -196,3 +196,5 @@
 }
 
 @end
+
+

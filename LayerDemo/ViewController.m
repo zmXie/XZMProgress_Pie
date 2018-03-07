@@ -25,25 +25,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     progressView1 = [XZMGradientProgressView
-                                             gradientProgressViewWithFrame:CGRectMake(20, 100, 200, 50)
-                                             style:0
-                                             showTitle:YES
-                                             animation:YES];
+                     gradientProgressViewWithFrame:CGRectMake(20, 100, 200, 50)
+                     style:0
+                     showTitle:YES
+                     animation:YES];
     progressView1.gradientCGColors = @[(id)[UIColor grayColor].CGColor,
                                        (id)[UIColor blueColor].CGColor,
                                        (id)[UIColor orangeColor].CGColor,
                                        (id)[UIColor purpleColor].CGColor];
     progressView1.progress = 0.8;
     [self.view addSubview:progressView1];
-
+    
     
     progressView2 = [XZMGradientProgressView
-                    gradientProgressViewWithFrame:CGRectMake(20, 150, 120, 200)
-                    style:1
-                    showTitle:YES
-                    animation:YES];
+                     gradientProgressViewWithFrame:CGRectMake(20, 150, 120, 200)
+                     style:1
+                     showTitle:YES
+                     animation:YES];
     progressView2.progress = 0.6;
     [self.view addSubview:progressView2];
     
@@ -56,6 +56,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
+    pieView.sectorSpace = (arc4random() % 5)/10.0;
     [pieView setDatas:[self getDatas] colors:@[[UIColor redColor],[UIColor purpleColor]]];
     [pieView stroke];
     
@@ -83,3 +84,5 @@
 
 
 @end
+
+
